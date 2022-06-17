@@ -33,6 +33,10 @@
         "title": "NVIM Replace"
       },
       {
+        "command": "nvim-theme.change",
+        "title": "NVIM Change"
+      },
+      {
         "command": "nvim-theme.command",
         "title": "NVIM Command"
       },
