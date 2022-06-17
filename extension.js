@@ -17,11 +17,13 @@ function changeColor(workbenchConfig, color) {
   const colorCustomizations = { ...currentColorCustomizations };
 
   const keys = [
+    'activityBar.activeBackground',
     'activityBarBadge.background',
     'editorCursor.foreground',
     'inputValidation.errorBorder',
     'tab.activeBorder',
     'statusBar.background',
+    'statusBarItem.remoteBackground',
   ];
 
   keys.forEach((key) => (colorCustomizations[key] = color));
