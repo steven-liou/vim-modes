@@ -54,6 +54,9 @@ function activate(context) {
     vscode.commands.registerCommand('nvim-theme.replace', function () {
       changeColor(workbenchConfig, workbenchConfig.get('nvimColorReplace'));
     }),
+    vscode.commands.registerCommand('nvim-theme.command', function () {
+      changeColor(workbenchConfig, workbenchConfig.get('nvimColorCommand'));
+    }),
   ];
   cmds.forEach((cmd) => context.subscriptions.push(cmd));
 }
