@@ -50,6 +50,8 @@ function changeColor({
   lineKeys = lineKeys.concat([
     'editor.lineHighlightBackground',
     'editor.lineHighlightBorder',
+    'titleBar.activeBackground',
+    'editorGroupHeader.tabsBackground',
   ]);
 
   const lineAlpha = getConfiguration('workbench').get('nvimLineAlpha') || 0.2;
