@@ -14,7 +14,7 @@ You can change the colors to match the theme you use:
 
 ### In your vimrc
 
-```vim
+```vijkm
 " THEME CHANGER
 function! SetCursorLineNrColorInsert(mode)
     " Insert mode: blue
@@ -23,7 +23,7 @@ function! SetCursorLineNrColorInsert(mode)
 
     " Replace mode: red
     elseif a:mode == "r"
-        call VSCodeNotify('nvim-theme.replace')
+        call VSCodeNotify("nvim-theme.replace")
     endif
 endfunction
 
