@@ -24,6 +24,7 @@ function changeColor({
   color,
   elementsKeys = [],
   lineKeys = [],
+  selectionKeys = [],
 }) {
   const currentColorCustomizations =
     workbenchConfig.get('colorCustomizations') || {};
@@ -45,17 +46,22 @@ function changeColor({
     (key) => (colorCustomizations[key] = addAlpha(color, elementsAlpha))
   );
 
-  console.log(lineKeys.length);
   lineKeys = lineKeys.concat([
     'editor.lineHighlightBackground',
     'editor.lineHighlightBorder',
   ]);
-  console.log(lineKeys.length);
 
   const lineAlpha = getConfiguration('workbench').get('nvimLineAlpha') || 0.2;
 
   lineKeys.forEach(
     (key) => (colorCustomizations[key] = addAlpha(color, lineAlpha))
+  );
+
+  const selectionAlpha =
+    getConfiguration('workbench').get('nvimSelectionAlpha') || 0.1;
+
+  selectionKeys.forEach(
+    (key) => (colorCustomizations[key] = addAlpha(color, selectionAlpha))
   );
 
   if (currentColorCustomizations !== colorCustomizations) {
@@ -88,7 +94,7 @@ function activate(context) {
       changeColor({
         workbenchConfig,
         color: workbenchConfig.get('nvimColorVisual'),
-        lineKeys: ['editor.selectionBackground'],
+        selectionKeys: ['editor.selectionBackground'],
       });
     }),
     vscode.commands.registerCommand('nvim-theme.replace', function () {
