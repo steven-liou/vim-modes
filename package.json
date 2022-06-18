@@ -51,6 +51,10 @@
       {
         "command": "nvim-theme.pending",
         "title": "NVIM Pending"
+      },
+      {
+        "command": "nvim-theme.copy",
+        "title": "NVIM Copy"
       }
     ]
   },
