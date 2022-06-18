@@ -38,7 +38,12 @@ function changeColor(workbenchConfig, color) {
     'editor.lineHighlightBackground',
     'editor.lineHighlightBorder',
   ];
-  keys.forEach((key) => (colorCustomizations[key] = addAlpha(color, 0.2)));
+
+  const alpha = getConfiguration('workbench').get('nvimAlpha') || 0.2;
+
+  keysWithAlpha.forEach(
+    (key) => (colorCustomizations[key] = addAlpha(color, alpha))
+  );
 
   if (currentColorCustomizations !== colorCustomizations) {
     workbenchConfig.update('colorCustomizations', colorCustomizations, true);
