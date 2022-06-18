@@ -22,7 +22,9 @@ function changeColor(workbenchConfig, color) {
     workbenchConfig.get('colorCustomizations') || {};
   const colorCustomizations = { ...currentColorCustomizations };
 
-  const keys = [
+  const elementsAlpha =
+    getConfiguration('workbench').get('nvimElementsAlpha') || 1;
+  const elementsKeys = [
     'activityBar.activeBackground',
     'activityBarBadge.background',
     'editorCursor.foreground',
@@ -32,17 +34,19 @@ function changeColor(workbenchConfig, color) {
     'statusBarItem.remoteBackground',
   ];
 
-  keys.forEach((key) => (colorCustomizations[key] = color));
+  elementsKeys.forEach(
+    (key) => (colorCustomizations[key] = addAlpha(color, elementsAlpha))
+  );
 
   const keysWithAlpha = [
     'editor.lineHighlightBackground',
     'editor.lineHighlightBorder',
   ];
 
-  const alpha = getConfiguration('workbench').get('nvimAlpha') || 0.2;
+  const lineAlpha = getConfiguration('workbench').get('nvimLineAlpha') || 0.2;
 
   keysWithAlpha.forEach(
-    (key) => (colorCustomizations[key] = addAlpha(color, alpha))
+    (key) => (colorCustomizations[key] = addAlpha(color, lineAlpha))
   );
 
   if (currentColorCustomizations !== colorCustomizations) {
