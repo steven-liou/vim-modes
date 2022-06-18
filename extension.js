@@ -116,13 +116,6 @@ function activate(context) {
         color: workbenchConfig.get('nvimColorDelete'),
       });
     }),
-    vscode.commands.registerCommand('nvim-theme.copy', function () {
-      changeColor({
-        workbenchConfig,
-        color: workbenchConfig.get('nvimColorCopy'),
-        selectionKeys: ['editor.selectionBackground'],
-      });
-    }),
     vscode.commands.registerCommand('nvim-theme.history', function () {
       changeColor({
         workbenchConfig,
