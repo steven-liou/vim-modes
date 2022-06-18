@@ -45,7 +45,12 @@ function changeColor({
     (key) => (colorCustomizations[key] = addAlpha(color, elementsAlpha))
   );
 
-  lineKeys = ['editor.lineHighlightBackground', 'editor.lineHighlightBorder'];
+  console.log(lineKeys.length);
+  lineKeys = lineKeys.concat([
+    'editor.lineHighlightBackground',
+    'editor.lineHighlightBorder',
+  ]);
+  console.log(lineKeys.length);
 
   const lineAlpha = getConfiguration('workbench').get('nvimLineAlpha') || 0.2;
 
