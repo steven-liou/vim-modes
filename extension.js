@@ -98,6 +98,7 @@ function activate(context) {
       changeColor({
         workbenchConfig,
         color: workbenchConfig.get('nvimColorInsert'),
+        selectionKeys: ['editor.selectionBackground'],
       });
     }),
     vscode.commands.registerCommand('nvim-theme.visual', function () {
