@@ -11,6 +11,12 @@ function getConfiguration(section = '') {
   return vscode.workspace.getConfiguration(section, resource);
 }
 
+function addAlpha(color: string, opacity: number): string {
+  // coerce values so ti is between 0 and 1.
+  const _opacity = Math.round(Math.min(Math.max(opacity || 1, 0), 1) * 255);
+  return color + _opacity.toString(16).toUpperCase();
+}
+
 function changeColor(workbenchConfig, color) {
   const currentColorCustomizations =
     workbenchConfig.get('colorCustomizations') || {};
@@ -31,6 +37,12 @@ function changeColor(workbenchConfig, color) {
   if (currentColorCustomizations !== colorCustomizations) {
     workbenchConfig.update('colorCustomizations', colorCustomizations, true);
   }
+
+  const keysWithAlpha = [
+    'editor.lineHighlightBackground',
+    'editor.lineHighlightBorder',
+  ];
+  keys.forEach((key) => (colorCustomizations[key] = addAlpha(color, 0.2)));
 }
 
 /**
