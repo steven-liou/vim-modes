@@ -19,14 +19,19 @@ function addAlpha(color, opacity) {
   return color + alphaString;
 }
 
-function changeColor(workbenchConfig, color) {
+function changeColor({
+  workbenchConfig,
+  color,
+  elementsKeys = [],
+  lineKeys = [],
+}) {
   const currentColorCustomizations =
     workbenchConfig.get('colorCustomizations') || {};
   const colorCustomizations = { ...currentColorCustomizations };
-
   const elementsAlpha =
     getConfiguration('workbench').get('nvimElementsAlpha') || 1;
-  const elementsKeys = [
+
+  elementsKeys = elementsKeys.concat([
     'activityBar.activeBackground',
     'activityBarBadge.background',
     'editorCursor.foreground',
@@ -34,20 +39,17 @@ function changeColor(workbenchConfig, color) {
     'tab.activeBorder',
     'statusBar.background',
     'statusBarItem.remoteBackground',
-  ];
+  ]);
 
   elementsKeys.forEach(
     (key) => (colorCustomizations[key] = addAlpha(color, elementsAlpha))
   );
 
-  const keysWithAlpha = [
-    'editor.lineHighlightBackground',
-    'editor.lineHighlightBorder',
-  ];
+  lineKeys = ['editor.lineHighlightBackground', 'editor.lineHighlightBorder'];
 
   const lineAlpha = getConfiguration('workbench').get('nvimLineAlpha') || 0.2;
 
-  keysWithAlpha.forEach(
+  lineKeys.forEach(
     (key) => (colorCustomizations[key] = addAlpha(color, lineAlpha))
   );
 
@@ -66,42 +68,65 @@ function activate(context) {
 
   const cmds = [
     vscode.commands.registerCommand('nvim-theme.normal', function () {
-      changeColor(workbenchConfig, workbenchConfig.get('nvimColorNormal'));
+      changeColor({
+        workbenchConfig,
+        color: workbenchConfig.get('nvimColorNormal'),
+      });
     }),
     vscode.commands.registerCommand('nvim-theme.insert', function () {
-      changeColor(workbenchConfig, workbenchConfig.get('nvimColorInsert'));
+      changeColor({
+        workbenchConfig,
+        color: workbenchConfig.get('nvimColorInsert'),
+      });
     }),
     vscode.commands.registerCommand('nvim-theme.visual', function () {
-      const color = workbenchConfig.get('nvimColorVisual');
-      changeColor(workbenchConfig, color);
-      const lineAlpha =
-        getConfiguration('workbench').get('nvimLineAlpha') || 0.2;
-      workbenchConfig.update(
-        'colorCustomizations',
-        { 'editor.selectionBackground': addAlpha(color, lineAlpha) },
-        true
-      );
+      changeColor({
+        workbenchConfig,
+        color: workbenchConfig.get('nvimColorVisual'),
+        lineKeys: ['editor.selectionBackground'],
+      });
     }),
     vscode.commands.registerCommand('nvim-theme.replace', function () {
-      changeColor(workbenchConfig, workbenchConfig.get('nvimColorReplace'));
+      changeColor({
+        workbenchConfig,
+        color: workbenchConfig.get('nvimColorReplace'),
+      });
     }),
     vscode.commands.registerCommand('nvim-theme.change', function () {
-      changeColor(workbenchConfig, workbenchConfig.get('nvimColorChange'));
+      changeColor({
+        workbenchConfig,
+        color: workbenchConfig.get('nvimColorChange'),
+      });
     }),
     vscode.commands.registerCommand('nvim-theme.command', function () {
-      changeColor(workbenchConfig, workbenchConfig.get('nvimColorCommand'));
+      changeColor({
+        workbenchConfig,
+        color: workbenchConfig.get('nvimColorCommand'),
+      });
     }),
     vscode.commands.registerCommand('nvim-theme.delete', function () {
-      changeColor(workbenchConfig, workbenchConfig.get('nvimColorDelete'));
+      changeColor({
+        workbenchConfig,
+        color: workbenchConfig.get('nvimColorDelete'),
+      });
     }),
     vscode.commands.registerCommand('nvim-theme.copy', function () {
-      changeColor(workbenchConfig, workbenchConfig.get('nvimColorCopy'));
+      changeColor({
+        workbenchConfig,
+        color: workbenchConfig.get('nvimColorCopy'),
+      });
     }),
     vscode.commands.registerCommand('nvim-theme.history', function () {
-      changeColor(workbenchConfig, workbenchConfig.get('nvimColorHistory'));
+      changeColor({
+        workbenchConfig,
+        color: workbenchConfig.get('nvimColorHistory'),
+      });
     }),
     vscode.commands.registerCommand('nvim-theme.pending', function () {
-      changeColor(workbenchConfig, workbenchConfig.get('nvimColorPending'));
+      changeColor({
+        workbenchConfig,
+        color: workbenchConfig.get('nvimColorPending'),
+      });
     }),
   ];
   cmds.forEach((cmd) => context.subscriptions.push(cmd));
