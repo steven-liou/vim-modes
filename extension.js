@@ -40,6 +40,7 @@ function changeColor({
     'tab.activeBorder',
     'statusBar.background',
     'statusBarItem.remoteBackground',
+    'editorLineNumber.activeForeground',
   ]);
 
   elementsKeys.forEach(
@@ -59,6 +60,12 @@ function changeColor({
 
   const selectionAlpha =
     getConfiguration('workbench').get('nvimSelectionAlpha') || 0.1;
+
+  selectionKeys = selectionKeys.concat([
+    'editor.findMatchBackground',
+    'editor.findMatchHighlightBackground',
+    'editor.selectionHighlightBackground',
+  ]);
 
   selectionKeys.forEach(
     (key) => (colorCustomizations[key] = addAlpha(color, selectionAlpha))
@@ -82,7 +89,7 @@ function activate(context) {
       changeColor({
         workbenchConfig,
         color: workbenchConfig.get('nvimColorNormal'),
-        selectionKeys: ['editor.selectionBackground'],
+        // selectionKeys: ['editor.selectionBackground'],
       });
     }),
     vscode.commands.registerCommand('nvim-theme.insert', function () {
