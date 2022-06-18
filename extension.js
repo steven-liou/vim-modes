@@ -34,15 +34,15 @@ function changeColor(workbenchConfig, color) {
 
   keys.forEach((key) => (colorCustomizations[key] = color));
 
-  if (currentColorCustomizations !== colorCustomizations) {
-    workbenchConfig.update('colorCustomizations', colorCustomizations, true);
-  }
-
   const keysWithAlpha = [
     'editor.lineHighlightBackground',
     'editor.lineHighlightBorder',
   ];
   keys.forEach((key) => (colorCustomizations[key] = addAlpha(color, 0.2)));
+
+  if (currentColorCustomizations !== colorCustomizations) {
+    workbenchConfig.update('colorCustomizations', colorCustomizations, true);
+  }
 }
 
 /**
