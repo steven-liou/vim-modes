@@ -72,7 +72,15 @@ function activate(context) {
       changeColor(workbenchConfig, workbenchConfig.get('nvimColorInsert'));
     }),
     vscode.commands.registerCommand('nvim-theme.visual', function () {
-      changeColor(workbenchConfig, workbenchConfig.get('nvimColorVisual'));
+      const color = workbenchConfig.get('nvimColorVisual');
+      changeColor(workbenchConfig, color);
+      const lineAlpha =
+        getConfiguration('workbench').get('nvimLineAlpha') || 0.2;
+      workbenchConfig.update(
+        'colorCustomizations',
+        { 'editor.selectionBackground': addAlpha(color, lineAlpha) },
+        true
+      );
     }),
     vscode.commands.registerCommand('nvim-theme.replace', function () {
       changeColor(workbenchConfig, workbenchConfig.get('nvimColorReplace'));
