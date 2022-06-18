@@ -3,7 +3,7 @@
   "displayName": "vim-mode",
   "publisher": "StevenLiou",
   "description": "",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "engines": {
     "vscode": "^1.68.0"
   },
