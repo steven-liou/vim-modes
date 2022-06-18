@@ -13,8 +13,10 @@ function getConfiguration(section = '') {
 
 function addAlpha(color, opacity) {
   // coerce values so ti is between 0 and 1.
-  const _opacity = Math.round(Math.min(Math.max(opacity || 1, 0), 1) * 255);
-  return color + _opacity.toString(16).toUpperCase();
+  let alpha = Math.round(Math.min(Math.max(opacity || 1, 0), 1) * 255);
+  let alphaString = alpha.toString(16).toUpperCase();
+  alphaString = alpha < 16 ? '0' + alphaString : alphaString;
+  return color + alphaString;
 }
 
 function changeColor(workbenchConfig, color) {
