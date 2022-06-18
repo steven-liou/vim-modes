@@ -86,6 +86,12 @@ function activate(context) {
     vscode.commands.registerCommand('nvim-theme.delete', function () {
       changeColor(workbenchConfig, workbenchConfig.get('nvimColorDelete'));
     }),
+    vscode.commands.registerCommand('nvim-theme.history', function () {
+      changeColor(workbenchConfig, workbenchConfig.get('nvimColorHistory'));
+    }),
+    vscode.commands.registerCommand('nvim-theme.pending', function () {
+      changeColor(workbenchConfig, workbenchConfig.get('nvimColorPending'));
+    }),
   ];
   cmds.forEach((cmd) => context.subscriptions.push(cmd));
 }

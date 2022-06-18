@@ -43,6 +43,14 @@
       {
         "command": "nvim-theme.delete",
         "title": "NVIM Delete"
+      },
+      {
+        "command": "nvim-theme.history",
+        "title": "NVIM History"
+      },
+      {
+        "command": "nvim-theme.pending",
+        "title": "NVIM Pending"
       }
     ]
   },
