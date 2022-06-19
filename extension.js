@@ -41,8 +41,6 @@ function changeColor({
     'statusBar.background',
     'statusBarItem.remoteBackground',
     'editorLineNumber.activeForeground',
-    'titleBar.activeForeground',
-    'tab.activeForeground',
   ]);
 
   elementsKeys.forEach(
