@@ -81,6 +81,7 @@ function changeColor({
  */
 function activate(context) {
   const workbenchConfig = getConfiguration('workbench');
+  const vimModesConfig = vscode.workspace.getConfiguration('vim-modes');
 
   // const operationMode = workbenchConfig.get('nvimUiMode')
 
@@ -88,66 +89,63 @@ function activate(context) {
     vscode.commands.registerCommand('nvim-theme.normal', function () {
       changeColor({
         workbenchConfig,
-        color: workbenchConfig.get('nvimColorNormal'),
+        color: vimModesConfig.get('nvimColorNormal'),
         selectionKeys: ['editor.selectionBackground'],
       });
     }),
-    vscode.commands.registerCommand('nvim-theme.insert', function () {
+    vscode.commands.registerCommand('nvim-theme.current_insert', function () {
       changeColor({
         workbenchConfig,
-        color: workbenchConfig.get('nvimColorInsert'),
+        color: vimModesConfig.get('nvimColorCurrentInsert'),
         selectionKeys: ['editor.selectionBackground'],
       });
     }),
     vscode.commands.registerCommand('nvim-theme.visual', function () {
       changeColor({
         workbenchConfig,
-        color: workbenchConfig.get('nvimColorVisual'),
+        color: vimModesConfig.get('nvimColorVisual'),
         selectionKeys: ['editor.selectionBackground'],
       });
     }),
     vscode.commands.registerCommand('nvim-theme.replace', function () {
       changeColor({
         workbenchConfig,
-        color: workbenchConfig.get('nvimColorReplace'),
+        color: vimModesConfig.get('nvimColorReplace'),
       });
     }),
     vscode.commands.registerCommand('nvim-theme.command', function () {
       changeColor({
         workbenchConfig,
-        color: workbenchConfig.get('nvimColorCommand'),
+        color: vimModesConfig.get('nvimColorCommand'),
       });
     }),
+    vscode.commands.registerCommand(
+      'nvim-theme.restore_insert',
+      async function () {
+        const color = vimModesConfig.get('nvimColorOriginalInsert');
+        await vimModesConfig.update('nvimColorCurrentInsert', color, true);
+      }
+    ),
     vscode.commands.registerCommand('nvim-theme.change', async function () {
-      // const currentColorCustomizations =
-      //   workbenchConfig.get('colorCustomizations') || {};
-      // const colorCustomizations = { ...currentColorCustomizations };
-
-      const color = workbenchConfig.get('nvimColorChange');
-      // colorCustomizations['nvimColorChange'] = color;
-      await workbenchConfig.update('nvimColorInsert', color, true);
-      // const insertColor = workbenchConfig.get('nvimColorInsert');
-      // console.log(
-      //   color === insertColor,
-      //   'helllllllllllllllllllllllllllllllllo'
-      // );
+      const color = vimModesConfig.get('nvimColorChange');
+      await vimModesConfig.update('nvimColorCurrentInsert', color, true);
     }),
     vscode.commands.registerCommand('nvim-theme.delete', function () {
       changeColor({
         workbenchConfig,
-        color: workbenchConfig.get('nvimColorDelete'),
+        color: vimModesConfig.get('nvimColorDelete'),
       });
     }),
     vscode.commands.registerCommand('nvim-theme.history', function () {
       changeColor({
         workbenchConfig,
-        color: workbenchConfig.get('nvimColorHistory'),
+        color: vimModesConfig.get('nvimColorHistory'),
       });
     }),
     vscode.commands.registerCommand('nvim-theme.pending', function () {
       changeColor({
         workbenchConfig,
-        color: workbenchConfig.get('nvimColorPending'),
+        color: vimModesConfig.get('nvimColorPending'),
       });
     }),
   ];

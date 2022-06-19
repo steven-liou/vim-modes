@@ -1,6 +1,6 @@
 {
   "name": "vim-mode",
-  "displayName": "vim-mode",
+  "displayName": "vim-modes",
   "publisher": "StevenLiou",
   "description": "",
   "version": "1.0.34",
@@ -21,8 +21,12 @@
         "title": "NVIM Normal"
       },
       {
-        "command": "nvim-theme.insert",
+        "command": "nvim-theme.current_insert",
         "title": "NVIM Insert"
+      },
+      {
+        "command": "nvim-theme.restore_insert",
+        "title": "NVIM Restore Insert"
       },
       {
         "command": "nvim-theme.visual",
@@ -55,64 +59,69 @@
     ],
     "configuration": {
       "type": "object",
-      "title": "Vim Modes",
+      "title": "Vim Modes Configuration",
       "properties": {
-        "nvimColorNormal": {
+        "vim-modes.nvimColorNormal": {
           "type": "string",
           "default": "#009e60",
           "description": "Normal mode color"
         },
-        "nvimColorInsert": {
+        "vim-modes.nvimColorCurrentInsert": {
           "type": "string",
           "default": "#1f6ecf",
-          "description": "Insert mode color"
+          "description": "Current Insert mode color"
         },
-        "nvimColorVisual": {
+        "vim-modes.nvimColorOriginalInsert": {
+          "type": "string",
+          "default": "#1f6ecf",
+          "description": "Original Insert mode color"
+        },
+        "vim-modes.nvimColorVisual": {
           "type": "string",
           "default": "#c586c0",
           "description": "Visual mode color"
         },
-        "nvimColorChange": {
+        "vim-modes.nvimColorChange": {
           "type": "string",
           "default": "#FFE3A9",
           "description": "Change mode color"
         },
-        "nvimColorCommand": {
+        "vim-modes.nvimColorCommand": {
           "type": "string",
           "default": "#F32424",
           "description": "Command mode color"
         },
-        "nvimColorDelete": {
+        "vim-modes.nvimColorDelete": {
           "type": "string",
           "default": "#f32f2f",
           "description": "Delete mode color"
         },
-        "nvimColorReplace": {
+        "vim-modes.nvimColorReplace": {
           "type": "string",
           "default": "#f32f2f",
           "description": "Replace mode color"
         },
-        "nvimColorPending": {
+        "vim-modes.nvimColorPending": {
           "type": "string",
           "default": "#FAC213",
           "description": "Pending mode color"
         },
-        "nvimColorHistory": {
+        "vim-modes.nvimColorHistory": {
           "type": "string",
           "default": "#9C51E0",
           "description": "History mode color"
         },
-        "nvimElementsAlpha": {
+        "vim-modes.nvimElementsAlpha": {
           "type": "number",
           "default": 1,
           "description": "Elements alpha"
         },
-        "nvimSelectionAlpha": {
+        "vim-modes.nvimSelectionAlpha": {
           "type": "number",
           "default": 0.2,
           "description": "Selection alpha"
         },
-        "nivmLineAlpha": {
+        "vim-modes.nivmLineAlpha": {
           "type": "number",
           "default": 0.03,
           "description": "Line alpha"
