@@ -52,6 +52,56 @@
         "command": "nvim-theme.pending",
         "title": "NVIM Pending"
       }
+    ],
+    "configuration": [
+      {
+        "title": "nvimColorNormal",
+        "type": "string"
+      },
+      {
+        "title": "nvimColorInsert",
+        "type": "string"
+      },
+      {
+        "title": "nvimColorVisual",
+        "type": "string"
+      },
+      {
+        "title": "nvimColorCommand",
+        "type": "string"
+      },
+      {
+        "title": "nvimColorReplace",
+        "type": "string"
+      },
+      {
+        "title": "nvimColorChange",
+        "type": "string"
+      },
+      {
+        "title": "nvimColorDelete",
+        "type": "string"
+      },
+      {
+        "title": "nvimColorHistory",
+        "type": "string"
+      },
+      {
+        "title": "nvimColorPending",
+        "type": "string"
+      },
+      {
+        "title": "nvimSelectionAlpha",
+        "type": "string"
+      },
+      {
+        "title": "nvimLineAlpha",
+        "type": "string"
+      },
+      {
+        "title": "nvimElementsAlpha",
+        "type": "string"
+      }
     ]
   },
   "scripts": {

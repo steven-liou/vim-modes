@@ -109,7 +109,7 @@ function activate(context) {
     vscode.commands.registerCommand('nvim-theme.replace', function () {
       changeColor({
         workbenchConfig,
-        color: workbenchConfig.get(''),
+        color: workbenchConfig.get('nvimColorReplace'),
       });
     }),
     vscode.commands.registerCommand('nvim-theme.command', function () {
@@ -118,11 +118,19 @@ function activate(context) {
         color: workbenchConfig.get('nvimColorCommand'),
       });
     }),
-    vscode.commands.registerCommand('nvim-theme.change', function () {
-      changeColor({
-        workbenchConfig,
-        color: workbenchConfig.get('nvimColorChange'),
-      });
+    vscode.commands.registerCommand('nvim-theme.change', async function () {
+      // const currentColorCustomizations =
+      //   workbenchConfig.get('colorCustomizations') || {};
+      // const colorCustomizations = { ...currentColorCustomizations };
+
+      const color = workbenchConfig.get('nvimColorChange');
+      // colorCustomizations['nvimColorChange'] = color;
+      await workbenchConfig.update('nvimColorInsert', color, true);
+      // const insertColor = workbenchConfig.get('nvimColorInsert');
+      // console.log(
+      //   color === insertColor,
+      //   'helllllllllllllllllllllllllllllllllo'
+      // );
     }),
     vscode.commands.registerCommand('nvim-theme.delete', function () {
       changeColor({
