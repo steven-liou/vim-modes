@@ -22,7 +22,7 @@
       },
       {
         "command": "nvim-theme.current_insert",
-        "title": "NVIM Insert"
+        "title": "NVIM Current Insert"
       },
       {
         "command": "nvim-theme.restore_insert",

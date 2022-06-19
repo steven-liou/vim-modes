@@ -119,16 +119,13 @@ function activate(context) {
         color: vimModesConfig.get('nvimColorCommand'),
       });
     }),
-    vscode.commands.registerCommand(
-      'nvim-theme.restore_insert',
-      async function () {
-        const color = vimModesConfig.get('nvimColorOriginalInsert');
-        await vimModesConfig.update('nvimColorCurrentInsert', color, true);
-      }
-    ),
-    vscode.commands.registerCommand('nvim-theme.change', async function () {
+    vscode.commands.registerCommand('nvim-theme.restore_insert', function () {
+      const color = vimModesConfig.get('nvimColorOriginalInsert');
+      vimModesConfig.update('nvimColorCurrentInsert', color, false);
+    }),
+    vscode.commands.registerCommand('nvim-theme.change', function () {
       const color = vimModesConfig.get('nvimColorChange');
-      await vimModesConfig.update('nvimColorCurrentInsert', color, true);
+      vimModesConfig.update('nvimColorCurrentInsert', color, true);
     }),
     vscode.commands.registerCommand('nvim-theme.delete', function () {
       changeColor({
