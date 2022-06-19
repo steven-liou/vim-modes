@@ -3,7 +3,7 @@
   "displayName": "vim-mode",
   "publisher": "StevenLiou",
   "description": "",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "engines": {
     "vscode": "^1.68.0"
   },
@@ -104,7 +104,7 @@
         },
         "nvimElementsAlpha": {
           "type": "number",
-          "default": 1.0,
+          "default": 1,
           "description": "Elements alpha"
         },
         "nvimSelectionAlpha": {
