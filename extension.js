@@ -87,7 +87,6 @@ function changeColor({
  */
 function activate(context) {
   const workbenchConfig = getConfiguration('workbench');
-  const vimModesConfig = vscode.workspace.getConfiguration('vim-modes');
 
   // const operationMode = workbenchConfig.get('nvimUiMode')
 
@@ -126,10 +125,12 @@ function activate(context) {
       });
     }),
     vscode.commands.registerCommand('nvim-theme.restore_insert', function () {
+      const vimModesConfig = vscode.workspace.getConfiguration('vim-modes');
       const color = vimModesConfig.get('nvimColorOriginalInsert');
       vimModesConfig.update('nvimColorCurrentInsert', color, true);
     }),
     vscode.commands.registerCommand('nvim-theme.change', async function () {
+      const vimModesConfig = vscode.workspace.getConfiguration('vim-modes');
       const color = vimModesConfig.get('nvimColorChange');
       vimModesConfig.update('nvimColorCurrentInsert', color, true);
     }),
