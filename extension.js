@@ -29,8 +29,8 @@ function changeColor({
   const currentColorCustomizations =
     workbenchConfig.get('colorCustomizations') || {};
   const colorCustomizations = { ...currentColorCustomizations };
-  const elementsAlpha =
-    getConfiguration('workbench').get('nvimElementsAlpha') || 1;
+  const vimModesConfig = vscode.workspace.getConfiguration('vim-modes');
+  const elementsAlpha = vimModesConfig.get('nvimElementsAlpha') || 1;
 
   elementsKeys = elementsKeys.concat([
     'activityBar.activeBackground',
@@ -52,14 +52,13 @@ function changeColor({
     'editor.lineHighlightBorder',
   ]);
 
-  const lineAlpha = getConfiguration('workbench').get('nvimLineAlpha') || 0.2;
+  const lineAlpha = vimModesConfig.get('nvimLineAlpha') || 0.2;
 
   lineKeys.forEach(
     (key) => (colorCustomizations[key] = addAlpha(color, lineAlpha))
   );
 
-  const selectionAlpha =
-    getConfiguration('workbench').get('nvimSelectionAlpha') || 0.1;
+  const selectionAlpha = vimModesConfig.get('nvimSelectionAlpha') || 0.1;
 
   selectionKeys = selectionKeys.concat([
     'editor.findMatchBackground',
