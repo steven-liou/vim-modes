@@ -83,13 +83,13 @@
         },
         "vim-modes.nvimColorChange": {
           "type": "string",
-          "default": "#FFE3A9",
-          "description": "Change mode color"
+          "default": "#ffe3a9",
+          "description": "change mode color"
         },
-        "vim-modes.nvimColorCommand": {
+        "vim-modes.nvimcolorcommand": {
           "type": "string",
-          "default": "#F32424",
-          "description": "Command mode color"
+          "default": "#f32424",
+          "description": "command mode color"
         },
         "vim-modes.nvimColorDelete": {
           "type": "string",

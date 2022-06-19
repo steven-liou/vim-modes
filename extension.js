@@ -54,7 +54,7 @@ function changeColor({
 
   let lineAlpha = vimModesConfig.get('nvimLineAlpha');
   if (lineAlpha === undefined) {
-    lineAlpha = 0;
+    lineAlpha = 0.01;
   }
 
   lineKeys.forEach(
@@ -63,7 +63,7 @@ function changeColor({
 
   let selectionAlpha = vimModesConfig.get('nvimSelectionAlpha');
   if (selectionAlpha === undefined) {
-    selectionAlpha = 0;
+    selectionAlpha = 0.01;
   }
 
   selectionKeys = selectionKeys.concat([
@@ -126,9 +126,9 @@ function activate(context) {
     }),
     vscode.commands.registerCommand('nvim-theme.restore_insert', function () {
       const color = vimModesConfig.get('nvimColorOriginalInsert');
-      vimModesConfig.update('nvimColorCurrentInsert', color, false);
+      vimModesConfig.update('nvimColorCurrentInsert', color, true);
     }),
-    vscode.commands.registerCommand('nvim-theme.change', function () {
+    vscode.commands.registerCommand('nvim-theme.change', async function () {
       const color = vimModesConfig.get('nvimColorChange');
       vimModesConfig.update('nvimColorCurrentInsert', color, true);
     }),
