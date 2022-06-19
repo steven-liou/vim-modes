@@ -89,7 +89,7 @@ function activate(context) {
       changeColor({
         workbenchConfig,
         color: workbenchConfig.get('nvimColorNormal'),
-        // selectionKeys: ['editor.selectionBackground'],
+        selectionKeys: ['editor.selectionBackground'],
       });
     }),
     vscode.commands.registerCommand('nvim-theme.insert', function () {
@@ -99,7 +99,7 @@ function activate(context) {
         selectionKeys: ['editor.selectionBackground'],
       });
     }),
-    vscode.commands.registerCommand('', function () {
+    vscode.commands.registerCommand('nvim-theme.visual', function () {
       changeColor({
         workbenchConfig,
         color: workbenchConfig.get('nvimColorVisual'),
