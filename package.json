@@ -37,6 +37,10 @@
         "title": "NVIM Command"
       },
       {
+        "command": "nvim-theme.change",
+        "title": "NVIM Change"
+      },
+      {
         "command": "nvim-theme.delete",
         "title": "NVIM Delete"
       },

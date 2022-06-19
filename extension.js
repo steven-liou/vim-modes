@@ -99,7 +99,7 @@ function activate(context) {
         selectionKeys: ['editor.selectionBackground'],
       });
     }),
-    vscode.commands.registerCommand('nvim-theme.visual', function () {
+    vscode.commands.registerCommand('', function () {
       changeColor({
         workbenchConfig,
         color: workbenchConfig.get('nvimColorVisual'),
@@ -109,13 +109,19 @@ function activate(context) {
     vscode.commands.registerCommand('nvim-theme.replace', function () {
       changeColor({
         workbenchConfig,
-        color: workbenchConfig.get('nvimColorReplace'),
+        color: workbenchConfig.get(''),
       });
     }),
     vscode.commands.registerCommand('nvim-theme.command', function () {
       changeColor({
         workbenchConfig,
         color: workbenchConfig.get('nvimColorCommand'),
+      });
+    }),
+    vscode.commands.registerCommand('nvim-theme.change', function () {
+      changeColor({
+        workbenchConfig,
+        color: workbenchConfig.get('nvimColorChange'),
       });
     }),
     vscode.commands.registerCommand('nvim-theme.delete', function () {
