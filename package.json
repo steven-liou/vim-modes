@@ -53,78 +53,94 @@
         "title": "NVIM Pending"
       }
     ],
-    "configuration": [
-      {
-        "title": "nvimColorNormal",
-        "type": "string"
-      },
-      {
-        "title": "nvimColorInsert",
-        "type": "string"
-      },
-      {
-        "title": "nvimColorVisual",
-        "type": "string"
-      },
-      {
-        "title": "nvimColorCommand",
-        "type": "string"
-      },
-      {
-        "title": "nvimColorReplace",
-        "type": "string"
-      },
-      {
-        "title": "nvimColorChange",
-        "type": "string"
-      },
-      {
-        "title": "nvimColorDelete",
-        "type": "string"
-      },
-      {
-        "title": "nvimColorHistory",
-        "type": "string"
-      },
-      {
-        "title": "nvimColorPending",
-        "type": "string"
-      },
-      {
-        "title": "nvimSelectionAlpha",
-        "type": "string"
-      },
-      {
-        "title": "nvimLineAlpha",
-        "type": "string"
-      },
-      {
-        "title": "nvimElementsAlpha",
-        "type": "string"
+    "configuration": {
+      "type": "object",
+      "title": "Vim Modes",
+      "properties": {
+        "nvimColorNormal": {
+          "type": "string",
+          "default": "#009e60",
+          "description": "Normal mode color"
+        },
+        "nvimColorInsert": {
+          "type": "string",
+          "default": "#1f6ecf",
+          "description": "Insert mode color"
+        },
+        "nvimColorVisual": {
+          "type": "string",
+          "default": "#c586c0",
+          "description": "Visual mode color"
+        },
+        "nvimColorChange": {
+          "type": "string",
+          "default": "#FFE3A9",
+          "description": "Change mode color"
+        },
+        "nvimColorCommand": {
+          "type": "string",
+          "default": "#F32424",
+          "description": "Command mode color"
+        },
+        "nvimColorDelete": {
+          "type": "string",
+          "default": "#f32f2f",
+          "description": "Delete mode color"
+        },
+        "nvimColorReplace": {
+          "type": "string",
+          "default": "#f32f2f",
+          "description": "Replace mode color"
+        },
+        "nvimColorPending": {
+          "type": "string",
+          "default": "#FAC213",
+          "description": "Pending mode color"
+        },
+        "nvimColorHistory": {
+          "type": "string",
+          "default": "#9C51E0",
+          "description": "History mode color"
+        },
+        "nvimElementsAlpha": {
+          "type": "number",
+          "default": 1.0,
+          "description": "Elements alpha"
+        },
+        "nvimSelectionAlpha": {
+          "type": "number",
+          "default": 0.2,
+          "description": "Selection alpha"
+        },
+        "nivmLineAlpha": {
+          "type": "number",
+          "default": 0.03,
+          "description": "Line alpha"
+        }
       }
-    ]
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "pretest": "npm run lint",
-    "test": "node ./test/runTest.js"
-  },
-  "devDependencies": {
-    "@types/glob": "^7.2.0",
-    "@types/mocha": "^9.1.1",
-    "@types/node": "16.x",
-    "@types/vscode": "^1.68.0",
-    "@vscode/test-electron": "^2.1.3",
-    "eslint": "^8.16.0",
-    "glob": "^8.0.3",
-    "mocha": "^10.0.0",
-    "typescript": "^4.7.2"
-  },
-  "dependencies": {
-    "color-alpha": "^1.1.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/steven-liou/vim-modes"
+    },
+    "scripts": {
+      "lint": "eslint .",
+      "pretest": "npm run lint",
+      "test": "node ./test/runTest.js"
+    },
+    "devDependencies": {
+      "@types/glob": "^7.2.0",
+      "@types/mocha": "^9.1.1",
+      "@types/node": "16.x",
+      "@types/vscode": "^1.68.0",
+      "@vscode/test-electron": "^2.1.3",
+      "eslint": "^8.16.0",
+      "glob": "^8.0.3",
+      "mocha": "^10.0.0",
+      "typescript": "^4.7.2"
+    },
+    "dependencies": {
+      "color-alpha": "^1.1.3"
+    },
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/steven-liou/vim-modes"
+    }
   }
 }
