@@ -52,13 +52,19 @@ function changeColor({
     'editor.lineHighlightBorder',
   ]);
 
-  const lineAlpha = vimModesConfig.get('nvimLineAlpha') || 0.2;
+  let lineAlpha = vimModesConfig.get('nvimLineAlpha');
+  if (lineAlpha === undefined) {
+    lineAlpha = 0;
+  }
 
   lineKeys.forEach(
     (key) => (colorCustomizations[key] = addAlpha(color, lineAlpha))
   );
 
-  const selectionAlpha = vimModesConfig.get('nvimSelectionAlpha') || 0.1;
+  let selectionAlpha = vimModesConfig.get('nvimSelectionAlpha');
+  if (selectionAlpha === undefined) {
+    selectionAlpha = 0;
+  }
 
   selectionKeys = selectionKeys.concat([
     'editor.findMatchBackground',

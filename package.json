@@ -121,7 +121,7 @@
           "default": 0.2,
           "description": "Selection alpha"
         },
-        "vim-modes.nivmLineAlpha": {
+        "vim-modes.nvimLineAlpha": {
           "type": "number",
           "default": 0.03,
           "description": "Line alpha"
