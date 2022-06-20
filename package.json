@@ -78,7 +78,7 @@
         },
         "vim-modes.nvimColorVisual": {
           "type": "string",
-          "default": "#c586c0",
+          "default": "#8A6287",
           "description": "Visual mode color"
         },
         "vim-modes.nvimColorChange": {
@@ -118,12 +118,12 @@
         },
         "vim-modes.nvimSelectionAlpha": {
           "type": "number",
-          "default": 0.2,
+          "default": 0.3,
           "description": "Selection alpha"
         },
         "vim-modes.nvimLineAlpha": {
           "type": "number",
-          "default": 0.03,
+          "default": 0.05,
           "description": "Line alpha"
         }
       }
