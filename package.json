@@ -63,7 +63,7 @@
       "properties": {
         "vim-modes.nvimColorNormal": {
           "type": "string",
-          "default": "#009e60",
+          "default": "#008551",
           "description": "Normal mode color"
         },
         "vim-modes.nvimColorCurrentInsert": {
@@ -83,13 +83,13 @@
         },
         "vim-modes.nvimColorChange": {
           "type": "string",
-          "default": "#ffe3a9",
-          "description": "change mode color"
+          "default": "#ab7300",
+          "description": "Change mode color"
         },
-        "vim-modes.nvimcolorcommand": {
+        "vim-modes.nvimColorCommand": {
           "type": "string",
           "default": "#f32424",
-          "description": "command mode color"
+          "description": "Command mode color"
         },
         "vim-modes.nvimColorDelete": {
           "type": "string",
@@ -103,7 +103,7 @@
         },
         "vim-modes.nvimColorPending": {
           "type": "string",
-          "default": "#FAC213",
+          "default": "#fa4f13",
           "description": "Pending mode color"
         },
         "vim-modes.nvimColorHistory": {

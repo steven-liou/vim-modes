@@ -62,14 +62,13 @@ function changeColor({
     (key) => (colorCustomizations[key] = addAlpha(color, lineAlpha))
   );
 
-  let selectionAlpha = vimModesConfig.get('nvimSelectionAlpha');
+  let selectionAlpha = vimModesConfig.get('');
   if (selectionAlpha === undefined) {
     selectionAlpha = 0.01;
   }
 
   selectionKeys = selectionKeys.concat([
     'editor.findMatchBackground',
-    'editor.findMatchHighlightBackground',
     'editor.selectionHighlightBackground',
   ]);
 
