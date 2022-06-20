@@ -62,7 +62,7 @@ function changeColor({
     (key) => (colorCustomizations[key] = addAlpha(color, lineAlpha))
   );
 
-  let selectionAlpha = vimModesConfig.get('');
+  let selectionAlpha = vimModesConfig.get('nvimSelectionAlpha');
   if (selectionAlpha === undefined) {
     selectionAlpha = 0.01;
   }
