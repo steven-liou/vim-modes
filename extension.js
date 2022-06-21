@@ -76,6 +76,10 @@ function changeColor({
     (key) => (colorCustomizations[key] = addAlpha(color, selectionAlpha))
   );
 
+  if (colorCustomizations['editorLineNumber.activeForeground'] > 0.2) {
+    colorCustomizations['editorLineNumber.activeForeground'] = '#eeeeee';
+  }
+
   if (currentColorCustomizations !== colorCustomizations) {
     workbenchConfig.update('colorCustomizations', colorCustomizations, true);
   }
@@ -91,6 +95,9 @@ function activate(context) {
 
   const cmds = [
     vscode.commands.registerCommand('nvim-theme.normal', function () {
+      const vimModesConfig = vscode.workspace.getConfiguration('vim-modes');
+      const lineAlpha = vimModesConfig.get('nvimNormalLineAlpha');
+      vimModesConfig.update('nvimLineAlpha', lineAlpha, true);
       changeColor({
         workbenchConfig,
         highlightGroup: 'nvimColorNormal',
@@ -98,6 +105,9 @@ function activate(context) {
       });
     }),
     vscode.commands.registerCommand('nvim-theme.current_insert', function () {
+      const vimModesConfig = vscode.workspace.getConfiguration('vim-modes');
+      const lineAlpha = vimModesConfig.get('nvimInsertLineAlpha');
+      vimModesConfig.update('nvimLineAlpha', lineAlpha, true);
       changeColor({
         workbenchConfig,
         highlightGroup: 'nvimColorCurrentInsert',
