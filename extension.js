@@ -25,6 +25,7 @@ function changeColor({
   elementsKeys = [],
   lineKeys = [],
   selectionKeys = [],
+  insertMode = false,
 }) {
   const currentColorCustomizations =
     workbenchConfig.get('colorCustomizations') || {};
@@ -53,7 +54,9 @@ function changeColor({
     'editor.lineHighlightBorder',
   ]);
 
-  let lineAlpha = vimModesConfig.get('nvimLineAlpha');
+  let lineAlpha = insertMode
+    ? vimModesConfig.get('nvimInsertLineAlpha')
+    : vimModesConfig.get('nvimLineAlpha');
   if (lineAlpha === undefined) {
     lineAlpha = 0.01;
   }
@@ -61,6 +64,10 @@ function changeColor({
   lineKeys.forEach(
     (key) => (colorCustomizations[key] = addAlpha(color, lineAlpha))
   );
+
+  if (lineAlpha > 0.2) {
+    colorCustomizations['editorLineNumber.activeForeground'] = '#fff';
+  }
 
   let selectionAlpha = vimModesConfig.get('nvimSelectionAlpha');
   if (selectionAlpha === undefined) {
@@ -75,10 +82,6 @@ function changeColor({
   selectionKeys.forEach(
     (key) => (colorCustomizations[key] = addAlpha(color, selectionAlpha))
   );
-
-  if (colorCustomizations['editorLineNumber.activeForeground'] > 0.2) {
-    colorCustomizations['editorLineNumber.activeForeground'] = '#eeeeee';
-  }
 
   if (currentColorCustomizations !== colorCustomizations) {
     workbenchConfig.update('colorCustomizations', colorCustomizations, true);
@@ -95,9 +98,6 @@ function activate(context) {
 
   const cmds = [
     vscode.commands.registerCommand('nvim-theme.normal', function () {
-      const vimModesConfig = vscode.workspace.getConfiguration('vim-modes');
-      const lineAlpha = vimModesConfig.get('nvimNormalLineAlpha');
-      vimModesConfig.update('nvimLineAlpha', lineAlpha, true);
       changeColor({
         workbenchConfig,
         highlightGroup: 'nvimColorNormal',
@@ -105,13 +105,11 @@ function activate(context) {
       });
     }),
     vscode.commands.registerCommand('nvim-theme.current_insert', function () {
-      const vimModesConfig = vscode.workspace.getConfiguration('vim-modes');
-      const lineAlpha = vimModesConfig.get('nvimInsertLineAlpha');
-      vimModesConfig.update('nvimLineAlpha', lineAlpha, true);
       changeColor({
         workbenchConfig,
         highlightGroup: 'nvimColorCurrentInsert',
         selectionKeys: ['editor.selectionBackground'],
+        insertMode: true,
       });
     }),
     vscode.commands.registerCommand('nvim-theme.visual', function () {

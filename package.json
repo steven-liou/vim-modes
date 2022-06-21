@@ -128,12 +128,7 @@
         },
         "vim-modes.nvimInsertLineAlpha": {
           "type": "number",
-          "default": 0.5,
-          "description": "Line alpha"
-        },
-        "vim-modes.nvimNormalLineAlpha": {
-          "type": "number",
-          "default": 0.05,
+          "default": 0.9,
           "description": "Line alpha"
         },
         "vim-modes.nvimInsertCursors": {
