@@ -125,6 +125,28 @@
           "type": "number",
           "default": 0.05,
           "description": "Line alpha"
+        },
+        "vim-modes.nvimInsertCursors": {
+          "type": "array",
+          "default": [
+            "thin",
+            "line-thin",
+            "thin",
+            "block-outline",
+            "block"
+          ],
+          "description": "List of cursor shapes in insert mode to transition after cursor hold"
+        },
+        "vim-modes.nvimInsertCursorAnimations": {
+          "type": "array",
+          "default": [
+            "blink",
+            "smooth",
+            "phase",
+            "expand",
+            "solid"
+          ],
+          "description": "List of cursor animations in insert mode to transition after cursor hold"
         }
       }
     }

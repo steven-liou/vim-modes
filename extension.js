@@ -2,8 +2,6 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 
-
-
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 
@@ -155,6 +153,14 @@ function activate(context) {
     }),
   ];
   cmds.forEach((cmd) => context.subscriptions.push(cmd));
+}
+
+// method for changing insert mode cursor
+function setInsertModeCursor({ workbenchConfig, type }) {
+  // const vimModesConfig = vscode.workspace.getConfiguration('vim-modes');
+
+  // workbenchConfig.get('editor.cursorStyle') || {};
+  workbenchConfig.update('editor.cursorStyle', type, true);
 }
 
 // this method is called when your extension is deactivated
