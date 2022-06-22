@@ -25,7 +25,6 @@ function changeColor({
   elementsKeys = [],
   lineKeys = [],
   selectionKeys = [],
-  modifyMode = false,
 }) {
   const currentColorCustomizations =
     workbenchConfig.get('colorCustomizations') || {};
@@ -54,9 +53,7 @@ function changeColor({
     'editor.lineHighlightBorder',
   ]);
 
-  let lineAlpha = modifyMode
-    ? vimModesConfig.get('nvimModifyLineAlpha')
-    : vimModesConfig.get('nvimLineAlpha');
+  let lineAlpha = vimModesConfig.get('nvimLineAlpha');
   if (lineAlpha === undefined) {
     lineAlpha = 0.01;
   }
@@ -109,7 +106,6 @@ function activate(context) {
         workbenchConfig,
         highlightGroup: 'nvimColorCurrentInsert',
         selectionKeys: ['editor.selectionBackground'],
-        modifyMode: true,
       });
     }),
     vscode.commands.registerCommand('nvim-theme.visual', function () {
@@ -117,7 +113,6 @@ function activate(context) {
         workbenchConfig,
         highlightGroup: 'nvimColorVisual',
         selectionKeys: ['editor.selectionBackground'],
-        modifyMode: true,
       });
     }),
     vscode.commands.registerCommand('nvim-theme.replace', function () {

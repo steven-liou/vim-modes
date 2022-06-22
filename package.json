@@ -126,11 +126,6 @@
           "default": 0.05,
           "description": "Line alpha"
         },
-        "vim-modes.nvimModifyLineAlpha": {
-          "type": "number",
-          "default": 0.9,
-          "description": "Line alpha"
-        },
         "vim-modes.nvimInsertCursors": {
           "type": "array",
           "default": [
