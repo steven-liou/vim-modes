@@ -68,12 +68,12 @@
         },
         "vim-modes.nvimColorCurrentInsert": {
           "type": "string",
-          "default": "#4c8bd9",
+          "default": "#1f6ecf",
           "description": "Current Insert mode color"
         },
         "vim-modes.nvimColorOriginalInsert": {
           "type": "string",
-          "default": "#4c8bd9",
+          "default": "#1f6ecf",
           "description": "Original Insert mode color"
         },
         "vim-modes.nvimColorVisual": {
@@ -83,7 +83,7 @@
         },
         "vim-modes.nvimColorChange": {
           "type": "string",
-          "default": "#1958a6",
+          "default": "#ab7300",
           "description": "Change mode color"
         },
         "vim-modes.nvimColorCommand": {
