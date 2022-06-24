@@ -83,7 +83,7 @@
         },
         "vim-modes.nvimColorChange": {
           "type": "string",
-          "default": "#ab7300",
+          "default": "#1958a6",
           "description": "Change mode color"
         },
         "vim-modes.nvimColorCommand": {
@@ -93,22 +93,22 @@
         },
         "vim-modes.nvimColorDelete": {
           "type": "string",
-          "default": "#f32f2f",
+          "default": "#9d3939",
           "description": "Delete mode color"
         },
         "vim-modes.nvimColorReplace": {
           "type": "string",
-          "default": "#f32f2f",
+          "default": "#d06c6c",
           "description": "Replace mode color"
         },
         "vim-modes.nvimColorPending": {
           "type": "string",
-          "default": "#fa4f13",
+          "default": "#85c4ac",
           "description": "Pending mode color"
         },
         "vim-modes.nvimColorHistory": {
           "type": "string",
-          "default": "#9C51E0",
+          "default": "#7d41b3",
           "description": "History mode color"
         },
         "vim-modes.nvimElementsAlpha": {
